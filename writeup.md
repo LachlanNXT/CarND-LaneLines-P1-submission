@@ -22,7 +22,7 @@ The goals / steps of this project are the following:
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### 1. Describe your pipeline.
 
 The image processing pipeline consisted of these steps: 
 * convert to HSV and colour threshold for yellow and white
