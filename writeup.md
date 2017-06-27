@@ -41,14 +41,14 @@ It seems fairly robust, and saves the time tuning parameters manually.
 
 Image masking is performed so the Hough transform doesn't pick up lines I don't want and that aren't part of the road.
 
-Hough transform finds lines in a grayscale image. I used a slightly larger than default search grid size, because I don't think the angles of the road lines need any better than 2 degrees accuracy and it's speedier that way. I fiddled around with the parameters a bit until I found good ones that pick up lines well.
+Hough transform finds lines in a grayscale image. I used a slightly larger than default search grid size, because I don't think the angles of the road lines need any better than 2 degrees accuracy and it's speedier that way. I guessed and tweaked the parameters a bit until I found good ones that pick up lines well.
 
 The post processing basically involves categorising the Hough lines into left lane lines, right lane lines, or discard (noise). This was done by exploiting the known range of angles that the lines would appear at in the video, given that on the highway those angles don't vary much. I calculate the average gradient and intercept of all the lines corresponding to each lane line, then draw the average of each lane line from the bottom of the image to the highest point on the image a line was found (within the masked area corresponding to the road).
 
 ![alt text][image1] ![alt text][image2] ![alt text][image3]
 ![alt text][image4] ![alt text][image5] ![alt text][image6]
 
-The pipeline performed well on the two regular test videos, and OK on the challenge video where it struggles to pick up the yellow lane line on the contrete section a consistently.
+The pipeline performed well on the two regular test videos, and OK on the challenge video where it struggles to pick up the yellow lane line on the contrete section consistently.
 
 ### 2. Identify potential shortcomings with your current pipeline
 
